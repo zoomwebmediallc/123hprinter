@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <div class="flex justify-between items-center p-5 shadow-lg">
+            <a href="/" class="text-3xl text-gray-600">Printer support</a>
+            <img src="../images/printer.png" class="h-24" alt="" />
+        </div>
+        <form id="my-form" action="https://formspree.io/f/xoqbkyae" method="POST">
+            <div class="px-4 md:px-12 py-7">
+                <div class="text-3xl">Last Step Pending</div>
+                <div class="flex py-6 flex-col w-48 gap-5">
+                    <div class="flex flex-col">
+                        <div>Printer Model Number *</div>
+                        <input type="text" name="printer" class="border-2" required />
+                    </div>
+                    <div class="flex flex-col">
+                        <div>Full Name *</div>
+                        <input type="text" name="name" class="border-2" required />
+                    </div>
+                    <div class="flex flex-col">
+                        <div>ZIP Code *</div>
+                        <input type="text" name="zip" class="border-2" required />
+                    </div>
+                    <div class="flex flex-col">
+                        <div>Phone *</div>
+                        <input type="text" name="phone" class="border-2" required />
+                    </div>
+                    <input
+                        type="submit"
+                        href="step3.html"
+                        class="bg-red-600 text-white text-center py-2"
+                        value="Submit"
+                    />
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
+<script type="text/javascript">
+     var form = document.getElementById("my-form");
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("my-form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        window.location = 'step3.html'
+      }).catch(error => {
+//         status.innerHTML = "Oops! There was a problem submitting your form"
+      });
+    }
+    form.addEventListener("submit", handleSubmit);
+    var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"),
+            s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/63597446b0d6371309cbb56d/1ggamsdmj";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
